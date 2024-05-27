@@ -24,6 +24,7 @@ yum install -y git
 # Criação do diretório
 mkdir -p /home/api
 
+echo "Baixando Projeto do Git..."
 # Clone do projeto do GitHub (use o próprio repositório onde está o script)
 GIT_URL="https://github.com/Gabrielvix/api-asterisk.git"
 git clone "$GIT_URL" /home/api
