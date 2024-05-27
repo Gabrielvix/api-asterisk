@@ -25,7 +25,7 @@ yum install -y git
 mkdir -p /home/api
 
 # Clone do projeto do GitHub (use o próprio repositório onde está o script)
-GIT_URL="https://github.com/seu-usuario/seu-repositorio.git"
+GIT_URL="https://github.com/Gabrielvix/api-asterisk.git"
 git clone "$GIT_URL" /home/api
 
 # Instalação do ffmpeg
