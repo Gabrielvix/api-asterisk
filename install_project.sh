@@ -31,7 +31,9 @@ git clone "$GIT_URL" /home/api
 
 # Instalação do ffmpeg
 yum install -y epel-release
-yum install -y ffmpeg
+rpm --import http://li.nux.ro/download/nux/RPM-GPG-KEY-nux.ro
+rpm -Uvh http://li.nux.ro/download/nux/dextop/el7/x86_64/nux-dextop-release-0-5.el7.nux.noarch.rpm
+yum install ffmpeg ffmpeg-devel -y
 
 # Instalação do Node.js 16.20.2
 curl -fsSL https://rpm.nodesource.com/setup_16.x | bash -
