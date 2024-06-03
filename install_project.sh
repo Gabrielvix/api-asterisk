@@ -10,13 +10,32 @@ IPBX_TOKEN=$(generate_token)
 echo "Seu token gerado é: $IPBX_TOKEN"
 echo "Por favor, copie este token e mantenha-o seguro."
 
-# Perguntas ao usuário
-read -p "Qual a porta padrão da API (PORT_API)? " PORT_API
-read -p "Qual a porta padrão do FastAGI (PORT_AGI)? " PORT_AGI
-read -p "Qual o usuário do Asterisk AMI (AMI_USER)? " AMI_USER
-read -p "Qual a senha do Asterisk AMI (AMI_PASSWORD)? " AMI_PASSWORD
-read -p "Qual o host do Asterisk AMI (AMI_HOST)? " AMI_HOST
-read -p "Qual a porta do Asterisk AMI (AMI_PORT)? " AMI_PORT
+# Informando ao usuário sobre os valores padrão
+echo "Pressione Enter para aceitar os valores padrão entre colchetes."
+
+# Perguntas ao usuário com valores padrão
+read -p "Qual a porta padrão da API (PORT_API) [3000]: " PORT_API
+PORT_API=${PORT_API:-3000}
+
+read -p "Qual a porta padrão do FastAGI (PORT_AGI) [3459]: " PORT_AGI
+PORT_AGI=${PORT_AGI:-3459}
+
+read -p "Qual o usuário do Asterisk AMI (AMI_USER) [admin]: " AMI_USER
+AMI_USER=${AMI_USER:-admin}
+
+read -p "Qual a senha do Asterisk AMI (AMI_PASSWORD) [sua_senha_ami]: " AMI_PASSWORD
+AMI_PASSWORD=${AMI_PASSWORD:-sua_senha_ami}
+
+read -p "Qual o host do Asterisk AMI (AMI_HOST) [localhost]: " AMI_HOST
+AMI_HOST=${AMI_HOST:-localhost}
+
+read -p "Qual a porta do Asterisk AMI (AMI_PORT) [5038]: " AMI_PORT
+AMI_PORT=${AMI_PORT:-5038}
+
+# Limpar a tela do terminal
+clear
+echo "Iniciando a instalação do projeto..."
+sleep 3
 
 # Instalação do git
 yum install -y git
@@ -50,6 +69,15 @@ AMI_HOST=$AMI_HOST
 AMI_PORT=$AMI_PORT
 EOF
 
+# Exibir o conteúdo do arquivo .env
+clear
+echo "O arquivo .env foi gerado com o seguinte conteúdo:"
+cat /home/api/.env
+sleep 5
+
+clear
+echo "Configurando o Projeto"
+sleep 2
 # Instalação das dependências do projeto
 cd /home/api
 npm install
@@ -63,5 +91,6 @@ pm2 start /home/api/ecosystem.config.js
 # Configuração do PM2 para startup e salvar
 pm2 startup
 pm2 save
-
+# Limpar a tela do terminal
+clear
 echo "Instalação e configuração concluídas com sucesso!"
