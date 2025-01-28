@@ -8,7 +8,26 @@
         }
       }
     ],
-    "minify"
+    [
+      "minify",
+      {
+        "builtIns": false,
+        "evaluate": false,
+        "mangle": false
+      }
+    ]
   ]
 }
-
+// {
+//   "presets": [
+//     [
+//       "@babel/preset-env",
+//       {
+//         "targets": {
+//           "node": "current"
+//         }
+//       }
+//     ],
+//     "minify"
+//   ]
+// }
