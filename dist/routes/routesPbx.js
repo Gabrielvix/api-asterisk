@@ -1,3 +1,0 @@
-"use strict";var _controllerAmi=_interopRequireDefault(require("../controllers/controllerAmi")),_express=require("express"),_isAuthToken=_interopRequireDefault(require("../middlewares/isAuthToken")),_controllerIssabel=_interopRequireDefault(require("../controllers/controllerIssabel"));function _interopRequireDefault(a){return a&&a.__esModule?a:{default:a}}const routes=new _express.Router;// AMI
-// Nova rota
-routes.post("/clicktocall",_isAuthToken.default,_controllerAmi.default.ClickToCall),routes.post("/transfer",_isAuthToken.default,_controllerAmi.default.Transfer),routes.post("/answer",_isAuthToken.default,_controllerAmi.default.Answer),routes.post("/search/recording",_isAuthToken.default,_controllerIssabel.default.AuthenticateAndDownload),module.exports=routes;

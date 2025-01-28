@@ -1,1 +1,0 @@
-"use strict";var _functions_agi=require("./functions_agi");Object.defineProperty(exports,"__esModule",{value:!0}),exports.agi=void 0,exports.initAgi=initAgi;const porta=process.env.PORT_AGI||3459,{Agi}=require("ts-agi"),agi=exports.agi=new Agi;async function initAgi(){agi.listen(porta,()=>{console.log(`FastAgi Rodando na Porta: ${porta}`)}),await(0,_functions_agi.registerAgi)()}
