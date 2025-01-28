@@ -5,17 +5,22 @@
   "main": "server.js",
   "dependencies": {
     "asterisk-ami-client": "^1.1.5",
-    "axios": "^1.6.8",
+    "axios": "^1.7.7",
     "child-process-promise": "^2.2.1",
     "cors": "^2.8.5",
     "express": "^4.18.1",
     "fs": "^0.0.1-security",
-    "moment": "^2.29.3",
+    "local-ip-address": "^1.0.0",
+    "moment": "^2.30.1",
+    "mysql2": "^3.11.3",
+    "node-schedule": "^2.1.1",
+    "redis": "^4.7.0",
     "ts-agi": "^0.0.26"
   },
   "scripts": {
     "start": "node dist/server.js",
     "build": "babel src --out-dir dist",
+    "obfuscate": "javascript-obfuscator dist --output dist --compact true --self-defending true",
     "dev": "nodemon -w src --exec \"babel-node src/server.js\""
   },
   "author": "Gabriel Felipe - gabrielfelipe.ti@gmail.com",
@@ -39,6 +44,7 @@
     "eslint": "^8.0.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^4.0.0",
+    "javascript-obfuscator": "^4.1.1",
     "nodemon": "^2.0.7",
     "rimraf": "^5.0.5",
     "webpack": "^5.90.3",
